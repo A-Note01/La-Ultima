@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Part</title>
+    <link rel="stylesheet" href="css/slide.css">
+</head>
+<body>
+    <div class="img-slider">
+        <div class="slide active">
+            <img src="img/hera.jpg" alt="" height="500px">
+            <div class="info">
+                <h2>Jeager</h2>
+                <p>Hola, si te soy sincero no se como empezar quiero hablarte d muchas cosas, pero eso es para dsp
+                    primero, quiero preguntarte, ¿Has estado bien?, ¿Como te ha ido?, ¿Como esta la hera?, ee y q me queda decir
+                    Cuanto tiempo no? jeager o deberia decir ...?
+                </p>
+
+            </div> 
+        </div>
+        <div class="slide">
+            <img src="img/XD.png" alt="" height="500px">
+            <div class="info">
+                <h2>Recapitulando</h2>
+                <p>Se, que fue un poquito tarde pero igual, feliz cumple,e estado ocuapdo en mis estudios tons no pude hacer esto,
+                    ahora tengo tiempo y lo aprovechare quiero por asi decirlo JASDJ, volver a intentar no reconquistarte solo o bueno si? JASDJSA, volver a intentar
+                    tener una relacion contigo, sea amigos o como sea, claro si tu estas dispuesta.
+                </p>
+                
+            </div> 
+        </div>
+        <div class="slide">
+            <img src="img/si.jpg" height="500px">
+            <div class="info">
+                <h2>Ahora si</h2>
+                <p> Eee, pues para empezar solo queria disculparme pues gracias a mis actitudes estamos como estamos, se que
+                    no fui una buena persona para ti, se que mis actitudes fueron pesimas, por eso te hago esto pues como parte de mi disculpas,
+                    quiero volver a hablar contigo, quiero volver a jugar contigo JDJSA, necesito terminar de ver HXH contigo, hay q hacer todo lo que nos 
+                    prometimos hacer, yo se que no vas a tener la misma confianza q antes, y lo acepto.
+                </p>
+                
+            </div> 
+        </div>
+        <div class="slide">
+            <img src="img/j.png" alt="" height="500px">
+            <div class="info">
+                <h2>Promesa</h2>
+                <p> Prometo hacer q la vuelvas a tener, y esta ves no quedara en palabras, pues esperare el tiempo necesario
+                    lo que tu quieras, por ti ruego lo q sea jDSJ, no se si sea solo yo pero pues, si t extraño demasiado, esas llamadas
+                    esas risas q nos pegabamos, esos conciertos, simplemente no puedo olvidarlos, entonces.. pues
+                </p>
+                
+            </div> 
+        </div>
+        <div class="slide">
+            <img src="img/mine.jpeg" alt="" height="500px">
+            <div class="info">
+                <h2>Finalmente</h2>
+                <p> Eee quiero seguir diciendote cosas pero ya no me da el ki jasdjsad, e pues solo me queda esperar pues tu respuesta,
+                    si quieres lo apreciare demasiado, y si no pues tmb lo acepto aunque puede q lo siga intentando jasdjsdaajs. Eee jasjas quien sabe
+                    si vuelvo a tener tu confianza no me bastaria con ser amigos, ya pues conf virtualitos q chch. Pq no puedes negar q tuvimos una conexion BOOOF.
+                    <button class="botones">
+                        <a href="html/felicitaciones.html" style="color: #fff;">¡Dale click!</a>
+                    </button>
+                </p>
+            </div> 
+        </div>
+        <div class="navigation">
+            <div class="btn active"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var slides = document.querySelectorAll('.slide');
+        var btns = document.querySelectorAll('.btn');
+        let currentSlide = 1;
+
+        var manualNav = function(manual){
+            slides.forEach((slide) => {
+                slide.classList.remove('active');
+
+            btns.forEach((btn) => {
+                btn.classList.remove('active');
+            });
+        });
+
+
+        slides[manual].classList.add('active');
+        btns[manual].classList.add('active');   
+        }
+
+        btns.forEach((btn, i) =>  {
+            btn.addEventListener("click", () =>{
+                manualNav(i);
+                currentSlide = i;
+            });   
+        });
+
+        var repeat = function(activeClass){
+            let active = document.getElementsByClassName('active');
+            let i = 1;
+            
+            var repeater = () => {
+                setTimeout(function(){
+                    [...active].forEach((activeSlide)=>{
+                        activeSlide.classList.remove('active');
+                    });
+                    slides[i].classList.add('active');
+                    btns[i].classList.add('active');
+                    i++;
+
+                    if(slides.length == i){
+                        i = 0;
+                    }
+                    if(i >= slides.length){
+                        return;
+                    }
+                    repeater();
+
+                }, 15000);
+            }
+            repeater();
+        }
+        repeat();
+    </script>
+</body>
+</html>
